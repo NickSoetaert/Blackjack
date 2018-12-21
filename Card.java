@@ -6,4 +6,9 @@ public class Card {
         suit = s;
         value = v;
     }
+
+    public String getCardName(){
+        return(value + " of " + suit);
+    }
+
 }

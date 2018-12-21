@@ -14,8 +14,13 @@ public class Deck {
 
     public void printDeck(){
         for(Card c : deck){
-            System.out.println(c.value + " of " + c.suit);
+            System.out.println(c.getCardName());
         }
+    }
+
+
+    public void shuffleDeck(){
+        Collections.shuffle(deck);
     }
 
 }
