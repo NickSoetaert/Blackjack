@@ -1,7 +1,11 @@
 import java.util.*;
 
 public class Deck {
-    private ArrayList<Card> deck = new ArrayList<Card>();
+    private Stack<Card> deck = new Stack<Card>();
+
+    private void shuffleDeck(){
+        Collections.shuffle(deck);
+    }
 
     public Deck(){
         for(Value v : Value.values()) {
@@ -10,6 +14,7 @@ public class Deck {
                 deck.add(c);
             }
         }
+        this.shuffleDeck();
     }
 
     public void printDeck(){
@@ -18,9 +23,8 @@ public class Deck {
         }
     }
 
-
-    public void shuffleDeck(){
-        Collections.shuffle(deck);
+    public Card drawCard(){
+        return deck.pop();
     }
 
 }

@@ -10,5 +10,4 @@ public class Card {
     public String getCardName(){
         return(value + " of " + suit);
     }
-
 }
