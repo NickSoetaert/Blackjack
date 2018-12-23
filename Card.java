@@ -7,7 +7,7 @@ public class Card {
         value = v;
     }
 
-    public String getCardName(){
-        return(value + " of " + suit);
+    public void getCardName(){
+        System.out.println(value + " of " + suit);
     }
 }

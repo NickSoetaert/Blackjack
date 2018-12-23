@@ -14,12 +14,12 @@ public class Deck {
                 deck.add(c);
             }
         }
-        this.shuffleDeck();
+        //this.shuffleDeck();
     }
 
     public void printDeck(){
         for(Card c : deck){
-            System.out.println(c.getCardName());
+            c.getCardName();
         }
     }
 
