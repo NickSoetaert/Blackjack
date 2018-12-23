@@ -5,8 +5,6 @@ public class Test{
         Player p = new Player(d);
         Player q = new Player(d);
 
-
-        //p.getHand().forEach((n) -> n.getCardName());
         p.printHand();
         q.printHand();
 
