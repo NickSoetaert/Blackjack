@@ -15,6 +15,13 @@ public class Test{
         q.printHand();
 
         p.displayChips();
-    }
+
+        Dealer dealer = new Dealer(d);
+       // dealer.displayChips();
+
+
+       System.out.println(p.getHandValue());
+       
+       }
 
 }
