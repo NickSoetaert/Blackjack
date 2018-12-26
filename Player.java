@@ -3,7 +3,6 @@ import java.util.*;
 public class Player{
     private ArrayList<Card> hand = new ArrayList<Card>();
     private int chips;
-    private String name;
 
     public Player(Deck d){
         chips = 1000;
@@ -25,6 +24,14 @@ public class Player{
         hand.add(d.drawCard());
     }
 
+    public void bet(){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("How many chips would you like to bet?");
+    }
+
+    public void displayChips(){
+        System.out.println("You have " + chips + " chips");
+    }
 
 
 }

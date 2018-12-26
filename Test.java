@@ -13,6 +13,8 @@ public class Test{
 
         p.printHand();
         q.printHand();
+
+        p.displayChips();
     }
 
 }
