@@ -18,7 +18,13 @@ public class Player{
         displayChips();
         bet();
 
+
+
         
+    }
+
+    public void displayChips(){
+        System.out.println("You have " + _chips + " chips");
     }
 
     private int bet(){
@@ -47,25 +53,25 @@ public class Player{
     
     }
 
-    public void hit(Deck d, Hand h){
+    private void hit(Deck d, Hand h){
         h.addCard(d.drawCard());
     }
 
-    public void doubleDown(Deck d){
+    protected void stay(){
 
     }
 
-    public void stay(){
+
+    private void doubleDown(Deck d){
 
     }
 
-    public void split(Deck d){
+
+    private void split(Deck d){
 
     }
 
-    public void displayChips(){
-        System.out.println("You have " + _chips + " chips");
-    }
+
 
 
 

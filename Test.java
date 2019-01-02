@@ -14,7 +14,7 @@ public class Test{
         p.displayChips();
 
         Dealer dealer = new Dealer(d);
-       // dealer.displayChips();
+        dealer.playHand(d);
 
 
        System.out.println(h.getHandValue());

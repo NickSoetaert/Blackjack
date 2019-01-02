@@ -10,6 +10,12 @@ public class Hand{
         }
     }
 
+    //used when splitting a hand
+    public Hand(Card c, Deck d){
+        this.cards.add(c);
+        this.cards.add(d.drawCard());
+    }
+
     public void addCard(Card c){
         cards.add(c);
     }
