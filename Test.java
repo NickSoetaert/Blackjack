@@ -5,6 +5,8 @@ public class Test{
         Player p = new Player(d);
         Player q = new Player(d);
 
+        p.playHand(d);
+
         Hand h = new Hand(d);
 
         h.printHand();

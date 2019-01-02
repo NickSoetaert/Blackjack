@@ -10,6 +10,10 @@ public class Hand{
         }
     }
 
+    public void addCard(Card c){
+        cards.add(c);
+    }
+
 
     public void printHand(){
         System.out.println("Hand:");
