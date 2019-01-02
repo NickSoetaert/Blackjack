@@ -5,14 +5,9 @@ public class Test{
         Player p = new Player(d);
         Player q = new Player(d);
 
-        p.printHand();
-        q.printHand();
+        Hand h = new Hand(d);
 
-        p.hit(d);
-        q.hit(d);
-
-        p.printHand();
-        q.printHand();
+        h.printHand();
 
         p.displayChips();
 
@@ -20,7 +15,7 @@ public class Test{
        // dealer.displayChips();
 
 
-       System.out.println(p.getHandValue());
+       System.out.println(h.getHandValue());
        
        }
 
