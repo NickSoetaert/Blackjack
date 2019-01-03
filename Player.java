@@ -17,8 +17,10 @@ public class Player{
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         displayChips();
         betHelper(d);
+        _chips -= hands.get(0).getBet();
 
         System.out.println("Your bet: " + hands.get(0).getBet());
+        printChips();
 
     }
 
@@ -66,7 +68,7 @@ public class Player{
         h.printHand();
 
         if(h.getHandValue() <= 21){
-            System.out.println("Your hand is worth " + h.getHandValue());
+            System.out.println("Your hand's sum is " + h.getHandValue());
         }
 
         //only stay(at or above 21)
@@ -74,7 +76,7 @@ public class Player{
             choice = 1;
         }
         //stay, hit, DD and split
-        else if(h.getBet() <= _chips/2 && h.canSplit()){
+        else if(h.getBet() <= _chips && h.canSplit()){
             while(choice != 1 && choice != 2 && choice != 3 && choice != 4){
                 System.out.printf("Would you like to: ");
                 System.out.println("[1] Stay, or [2] Hit, [3] Double Down, or [4] Split?");
@@ -84,7 +86,7 @@ public class Player{
             }
         }
         //stay, hit, and DD
-        else if(h.getBet() <= _chips/2){
+        else if(h.getBet() <= _chips){
             while(choice != 1 && choice != 2 && choice != 3){
                 System.out.printf("Would you like to: ");
                 System.out.println("[1] Stay, [2] Hit, or [3] Double Down");
@@ -136,14 +138,18 @@ public class Player{
 
     private void doubleDown(Deck d, Hand h){
         h.addCard(d.drawCard());
+        _chips -= h.getBet();
         h.setBet(h.getBet() * 2);
         System.out.println("\nYour bet has been doubled to " + h.getBet() + " chips.");
+        printChips();
         h.printHand();
         stay(h);
     }
 
     private void split(Deck d, Hand h){
         System.out.println("You split your hand!");
+        _chips -= h.getBet();
+        printChips();
 
         hands.remove(h);
 
@@ -161,8 +167,9 @@ public class Player{
         System.out.println("");
 
         playHelper(d, a);
-        playHelper(d, b);
+        System.out.println("\nNumber of hands: " + hands.size());
 
+        playHelper(d, b);
         System.out.println("\nNumber of hands: " + hands.size());
 
     }
@@ -171,12 +178,8 @@ public class Player{
         System.out.println("You have " + _chips + " chips");
     }
 
-    private int getSumOfAllBets(){
-        int sum = 0;
-        for(Hand h : hands){
-            sum += h.getBet();
-        }
-        return sum;
+    private void printChips(){
+        System.out.println("You have " + _chips + " left in your stack.");
     }
 
 }
