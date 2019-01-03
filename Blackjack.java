@@ -1,11 +1,13 @@
 public class Blackjack{
     public static void main(String[] args){
 
-        //Card k = new Card(Suit.HEARTS, Value.TWO);
-        //Card q = new Card(Suit.CLUBS, Value.ACE);
         
-        //Deck d = new Deck(k, q);
-
+        //For debug/showing off split abilities. Make sure to uncomment special Deck constructor
+        /*
+        Card k = new Card(Suit.HEARTS, Value.TWO);
+        Card q = new Card(Suit.CLUBS, Value.ACE);
+        Deck d = new Deck(k, q);
+        */
 
         Player p = new Player();
         Dealer dealer = new Dealer();

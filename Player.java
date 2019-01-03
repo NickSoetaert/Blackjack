@@ -13,6 +13,26 @@ public class Player {
         this._chips = 1000;
     }
 
+    public CopyOnWriteArrayList<Hand> getHands(){
+        return hands;
+    }
+
+    public void awardWinnings(int w){
+        _chips += w;
+    }
+
+    public int getChips(){
+        return _chips;
+    }
+
+    public void clearHands(){
+        hands.clear();
+    }
+
+    public void closeScanner(){
+        sc.close();
+    }
+
     public void bet(Deck d){
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         displayChips();
@@ -23,16 +43,6 @@ public class Player {
         printChips();
 
     }
-
-    public void play(Deck d){
-        System.out.println("\nIt is your turn to play.\n");
-
-        playHelper(d, hands.get(0));
-        
-
-        //POSSIBLE BUGS IN THE FUTURE HERE. What if we want to play multiple rounds?
-    }
-
 
     private void betHelper(Deck d){
         boolean badBet = true;
@@ -56,6 +66,10 @@ public class Player {
                 badBet = false;
             }
         }
+    }
+
+    public void play(Deck d){
+        playHelper(d, hands.get(0));
     }
 
     //Plays a single hand for a player, called by play() for each hand a player has.
@@ -179,25 +193,4 @@ public class Player {
     private void printChips(){
         System.out.println("You have " + _chips + " left in your stack.");
     }
-
-    public CopyOnWriteArrayList<Hand> getHands(){
-        return hands;
-    }
-
-    public void awardWinnings(int w){
-        _chips += w;
-    }
-
-    public int getChips(){
-        return _chips;
-    }
-
-    public void clearHands(){
-        hands.clear();
-    }
-
-    public void closeScanner(){
-        sc.close();
-    }
-
 }
