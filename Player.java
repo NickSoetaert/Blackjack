@@ -65,12 +65,12 @@ public class Player{
             stay();
         }
         //stay, hit, DD and split
-        else if(_chips >= h.getBet() && h.canSplit()){
+        else if(h.getBet() <= _chips/2 && h.canSplit()){
             System.out.printf("Would you like to: ");
             System.out.println("[1] Stay, or [2] Hit, [3] Double Down, or [4] Split?");
         }
         //stay, hit, and DD
-        else if(_chips >= h.getBet()){
+        else if(h.getBet() <= _chips/2){
             System.out.printf("Would you like to: ");
             System.out.println("[1] Stay, [2] Hit, or [3] Double Down");
         }
