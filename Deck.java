@@ -16,18 +16,17 @@ public class Deck {
     //For debug only
     /*
     public Deck(Card a, Card b){
-
         _deck.add(a);
         _deck.add(b);
-
-        for(int i = 0; i < 3; i++) {
+        for(Value v : Value.values()) {
             for(Suit s : Suit.values()) {
-                Card c = new Card(s, Value.KING);
+                Card c = new Card(s, v);
                 _deck.add(c);
             }
         }
     }
     */
+    
 
     private void shuffleDeck(){
         Collections.shuffle(_deck);

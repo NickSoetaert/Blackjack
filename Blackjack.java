@@ -1,7 +1,11 @@
 public class Blackjack{
     public static void main(String[] args){
 
-        
+        //Todo: 
+        //Insurance
+        //try-catch blocks for bad input
+        //ascii-art cards?
+
         //For debug/showing off split abilities. Make sure to uncomment special Deck constructor
         /*
         Card k = new Card(Suit.HEARTS, Value.TWO);
@@ -20,6 +24,9 @@ public class Blackjack{
 
             dealer.initHand(d);
             dealer.printHiddenHand();
+
+            //if hiddenhand == ace
+            //player.promptInsurance()
 
             p.play(d);
             dealer.playHand(d);
