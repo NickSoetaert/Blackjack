@@ -11,6 +11,14 @@ public class Card {
         System.out.println(value + " of " + suit);
     }
 
+    public void getCardNameWithPrefix(){
+        if((value == Value.EIGHT) || (value == Value.ACE)){
+            System.out.println("an " + value + " of " + suit);
+        } else {
+            System.out.println("a " + value + " of " + suit);
+        }
+    }
+
     public int getValue(){
         int v;
         if (value == Value.ACE) v = 1; //Hand will add 10 to Ace when applicable

@@ -4,17 +4,19 @@ public class Hand{
     protected ArrayList<Card> cards = new ArrayList<Card>();
     private int _bet;
 
-    public Hand(Deck d){
+    public Hand(Deck d, int bet){
         //Make sure every hand has 2 cards
         while(cards.size() < 2){
             this.cards.add(d.drawCard());
         }
+        _bet = bet;
     }
 
     //used when splitting a hand
-    public Hand(Card c, Deck d){
+    public Hand(Card c, Deck d, int bet){
         this.cards.add(c);
         this.cards.add(d.drawCard());
+        _bet = bet;
     }
 
     public void addCard(Card c){
@@ -35,6 +37,10 @@ public class Hand{
         for(Card c : cards){
             c.getCardName();
         }
+    }
+
+    public Card getFirstCard(){
+        return cards.get(0);
     }
 
 

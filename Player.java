@@ -8,17 +8,16 @@ public class Player{
     protected ArrayList<Hand> hands = new ArrayList<Hand>();
     private int _chips;
 
-    public Player(Deck d){
+    public Player(){
         this._chips = 1000;
-        this.hands.add(new Hand(d));
     }
 
     public void playHand(Deck d){
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         displayChips();
-        bet();
+        bet(d);
 
-
+        System.out.println("Your bet: " + hands.get(0).getBet());
 
         
     }
@@ -27,7 +26,7 @@ public class Player{
         System.out.println("You have " + _chips + " chips");
     }
 
-    private int bet(){
+    private void bet(Deck d){
         boolean badBet = true;
         int amnt = 0;
         Scanner sc = new Scanner(System.in);
@@ -44,14 +43,13 @@ public class Player{
                 System.out.println("Must bet at least 1 chip");
             }
             else{
-                hands.set(0, setBet(amnt));
+                //Initialize player's initial hand of two cards
+                this.hands.add(new Hand(d, amnt));
                 badBet = false;
             }
         }
 
-        sc.close();
-        //return amnt;
-    
+        sc.close();    
     }
 
     private void hit(Deck d, Hand h){

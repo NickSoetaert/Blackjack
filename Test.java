@@ -2,22 +2,18 @@ public class Test{
     public static void main(String[] args){
         Deck d = new Deck();
 
-        Player p = new Player(d);
-        Player q = new Player(d);
+        Player p = new Player();
+        Dealer dealer = new Dealer();
+
+        dealer.initHand(d);
+        dealer.printHiddenHand();
 
         p.playHand(d);
 
-        Hand h = new Hand(d);
 
-        h.printHand();
 
-        p.displayChips();
-
-        Dealer dealer = new Dealer(d);
         dealer.playHand(d);
 
-
-       System.out.println(h.getHandValue());
        
        }
 

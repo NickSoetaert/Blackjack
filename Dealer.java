@@ -1,30 +1,36 @@
 public class Dealer extends Player {
-    Hand h;
+    Hand hand;
 
-    public Dealer(Deck d){
-        super(d);
-        h = new Hand(d);
+    public Dealer(){
+        //No default values
+    }
+
+    public void initHand(Deck d){
+        hand = new Hand(d, 0);
     }
 
     public void playHand(Deck d){
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.printf("Dealer's ");
-        h.printHand();
+        hand.printHand();
 
-        while(h.getHandValue() <= 16){
+        while(hand.getHandValue() <= 16){
             Card c = d.drawCard();
             System.out.println(" ");
 
-            if((c.getEnumValue() == Value.EIGHT) || (c.getEnumValue() == Value.ACE)){
-                System.out.printf("The dealer hits, and draws an ");
-            } else {
-                System.out.printf("The dealer hits, and draws a ");
-            }
+            System.out.printf("The dealer hits, and draws ");
+
+            c.getCardNameWithPrefix();
             
-            c.getCardName();
-            
-            h.addCard(c);
+            hand.addCard(c);
         }
-        System.out.println("\nDealer's final hand is worth: " + h.getHandValue());
+        System.out.println("\nDealer's final hand is worth: " + hand.getHandValue());
     }
+
+    public void printHiddenHand(){
+        Card c = hand.getFirstCard();
+        System.out.printf("The dealer is showing " );
+        c.getCardNameWithPrefix();
+    }
+
 }
