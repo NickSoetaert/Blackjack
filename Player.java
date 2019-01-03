@@ -29,6 +29,8 @@ public class Player{
             getPlayerMove(h);
         }
 
+        //POSSIBLE BUGS IN THE FUTURE HERE. What if we want to play multiple rounds?
+        sc.close();
     }
 
 
@@ -73,26 +75,26 @@ public class Player{
         else if(h.getBet() <= _chips/2 && h.canSplit()){
             System.out.printf("Would you like to: ");
             System.out.println("[1] Stay, or [2] Hit, [3] Double Down, or [4] Split?");
-            String nextIntString = sc.nextLine(); //get the number as a single line
-            int nextInt = Integer.parseInt(nextIntString);
+
+            String buffer = sc.nextLine();
+            choice = Integer.parseInt(buffer);
         }
         //stay, hit, and DD
         else if(h.getBet() <= _chips/2){
             System.out.printf("Would you like to: ");
             System.out.println("[1] Stay, [2] Hit, or [3] Double Down");
-            String nextIntString = sc.nextLine(); //get the number as a single line
-            int nextInt = Integer.parseInt(nextIntString);
+
+            String buffer = sc.nextLine();
+            choice = Integer.parseInt(buffer);
         }
         //only stay and hit 
         else{
             System.out.printf("Would you like to: ");
             System.out.println("[1] Stay, or [2] Hit");
-            choice = sc.nextInt();
+
+            String buffer = sc.nextLine();
+            choice = Integer.parseInt(buffer);
         }
-
-
-
-        sc.close();
 
         return choice;
 
