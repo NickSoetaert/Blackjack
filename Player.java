@@ -182,4 +182,16 @@ public class Player {
         System.out.println("You have " + _chips + " left in your stack.");
     }
 
+    public CopyOnWriteArrayList<Hand> getHands(){
+        return hands;
+    }
+
+    public void awardWinnings(int w){
+        _chips += w;
+    }
+
+    public int getChips(){
+        return _chips;
+    }
+
 }

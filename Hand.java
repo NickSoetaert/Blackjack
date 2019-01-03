@@ -70,4 +70,8 @@ public class Hand {
 
         return sum;
     }
+
+    public boolean isBlackjack(){
+        return(this.getHandValue() == 21 && cards.size() == 2);
+    }
 }

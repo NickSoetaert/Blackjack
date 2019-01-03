@@ -32,4 +32,8 @@ public class Dealer {
         c.getCardNameWithPrefix();
     }
 
+    public Hand getHand(){
+        return _hand;
+    }
+
 }
