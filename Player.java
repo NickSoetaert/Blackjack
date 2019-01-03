@@ -26,7 +26,7 @@ public class Player{
     //Calls playHelper on all hands
     public void play(Deck d){
         for(Hand h : hands){
-            getPlayerMove(h);
+            playHelper(d, h);
         }
 
         //POSSIBLE BUGS IN THE FUTURE HERE. What if we want to play multiple rounds?
@@ -60,12 +60,13 @@ public class Player{
         }
     }
 
-    //Plays for a single hand
-    private int getPlayerMove(Hand h){     
+    //Plays a single hand for a player, called by play() for each hand a player has.
+    private void playHelper(Deck d, Hand h){     
+        int choice = 0;
 
-        int choice = 1;
-
+        System.out.println(" ");
         h.printHand();
+        System.out.println("Your hand is worth " + h.getHandValue());
 
         //only stay(at 21)
         if(h.getHandValue() >= 21){
@@ -73,44 +74,66 @@ public class Player{
         }
         //stay, hit, DD and split
         else if(h.getBet() <= _chips/2 && h.canSplit()){
-            System.out.printf("Would you like to: ");
-            System.out.println("[1] Stay, or [2] Hit, [3] Double Down, or [4] Split?");
+            while(choice != 1 && choice != 2 && choice != 3 && choice != 4){
+                System.out.printf("Would you like to: ");
+                System.out.println("[1] Stay, or [2] Hit, [3] Double Down, or [4] Split?");
 
-            String buffer = sc.nextLine();
-            choice = Integer.parseInt(buffer);
+                String buffer = sc.nextLine();
+                choice = Integer.parseInt(buffer);
+            }
         }
         //stay, hit, and DD
         else if(h.getBet() <= _chips/2){
-            System.out.printf("Would you like to: ");
-            System.out.println("[1] Stay, [2] Hit, or [3] Double Down");
+            while(choice != 1 && choice != 2 && choice != 3){
+                System.out.printf("Would you like to: ");
+                System.out.println("[1] Stay, [2] Hit, or [3] Double Down");
 
-            String buffer = sc.nextLine();
-            choice = Integer.parseInt(buffer);
+                String buffer = sc.nextLine();
+                choice = Integer.parseInt(buffer);
+            }
         }
         //only stay and hit 
         else{
-            System.out.printf("Would you like to: ");
-            System.out.println("[1] Stay, or [2] Hit");
+            while(choice != 1 && choice != 2){
+                System.out.printf("Would you like to: ");
+                System.out.println("[1] Stay, or [2] Hit");
 
-            String buffer = sc.nextLine();
-            choice = Integer.parseInt(buffer);
+                String buffer = sc.nextLine();
+                choice = Integer.parseInt(buffer);
+            }
         }
 
-        return choice;
-
+        if(choice == 1){
+            stay(h);
+        }
+        else if(choice == 2){
+            hit(d, h);
+        }
+        else if(choice == 3){
+            doubleDown(d, h);
+        }
+        else if(choice == 4){
+            split(d, h);
+        }
+        else{
+            System.out.println("\n\n\nERROR: Reached what should be impossible else statement in Player.java\n\n\n");
+        }
     }
 
-    private void executePlayerMove(int choice){
-
+    protected void stay(Hand h){
+        if(h.getHandValue() > 21){
+            System.out.println("You bust at " + h.getHandValue());
+        } else {
+            System.out.println("You stay at " + h.getHandValue());
+        }
     }
 
     private void hit(Deck d, Hand h){
         h.addCard(d.drawCard());
+        playHelper(d, h);
     }
 
-    protected void stay(Hand h){
 
-    }
 
 
     private void doubleDown(Deck d, Hand h){

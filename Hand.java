@@ -51,7 +51,7 @@ public class Hand{
     }
 
 
-    protected int getHandValue(){
+    public int getHandValue(){
         //only one ace in a hand can count as 11
 
         int sum = 0;
