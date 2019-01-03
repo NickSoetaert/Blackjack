@@ -1,8 +1,9 @@
-import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList; 
+import java.util.*; 
 
 public class Player{
 
-    private ArrayList<Hand> hands = new ArrayList<Hand>();
+    private CopyOnWriteArrayList<Hand> hands = new CopyOnWriteArrayList<Hand>();
     private int _chips;
     private Scanner sc;
 
@@ -21,11 +22,12 @@ public class Player{
 
     }
 
-    //Calls playHelper on all hands
     public void play(Deck d){
-        for(Hand h : hands){
-            playHelper(d, h);
-        }
+
+        System.out.println("\nIt is your turn to play.\n");
+
+        playHelper(d, hands.get(0));
+        
 
         //POSSIBLE BUGS IN THE FUTURE HERE. What if we want to play multiple rounds?
         sc.close();
@@ -60,7 +62,7 @@ public class Player{
     private void playHelper(Deck d, Hand h){     
         int choice = 0;
 
-        System.out.println(" ");
+        System.out.println("Your current hand: ");
         h.printHand();
 
         if(h.getHandValue() <= 21){
@@ -141,23 +143,40 @@ public class Player{
     }
 
     private void split(Deck d, Hand h){
-        System.out.println("You split your hand.");
+        System.out.println("You split your hand!");
 
-        System.out.println("Contains h: " + hands.contains(h));
-        //hands.remove(h);
+        hands.remove(h);
 
         Hand a = new Hand(d, h.getCardAt(0), h.getBet());
-        a.printHand();
+        hands.add(a);
 
         Hand b = new Hand(d, h.getCardAt(1), h.getBet());
-        b.printHand();
+        hands.add(b);
 
-        System.out.println("Number of hands: " + hands.size());
+        System.out.println("\nNew Hand 'A': ");
+        a.printHand();
+
+        System.out.println("\nNew Hand 'B': ");
+        b.printHand();
+        System.out.println("");
+
+        playHelper(d, a);
+        playHelper(d, b);
+
+        System.out.println("\nNumber of hands: " + hands.size());
 
     }
 
     private void displayChips(){
         System.out.println("You have " + _chips + " chips");
+    }
+
+    private int getSumOfAllBets(){
+        int sum = 0;
+        for(Hand h : hands){
+            sum += h.getBet();
+        }
+        return sum;
     }
 
 }

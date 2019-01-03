@@ -9,15 +9,18 @@ public class Deck {
 
     //For debug only
     public Deck(Card a, Card b){
-        for(Value v : Value.values()) {
+
+        deck.add(a);
+        deck.add(b);
+
+        for(int i = 0; i < 20; i++) {
             for(Suit s : Suit.values()) {
-                Card c = new Card(s, v);
+                Card c = new Card(s, Value.KING);
                 deck.add(c);
             }
         }
 
-        deck.add(a);
-        deck.add(b);
+
     }
 
     public Deck(){

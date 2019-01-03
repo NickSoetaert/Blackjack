@@ -12,7 +12,7 @@ public class Dealer{
 
     public void playHand(Deck d){
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.printf("Dealer's ");
+        System.out.printf("Dealer's Hand: \n");
         _hand.printHand();
 
         while(_hand.getHandValue() <= 16){

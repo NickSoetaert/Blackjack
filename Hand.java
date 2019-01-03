@@ -33,7 +33,7 @@ public class Hand{
 
 
     public void printHand(){
-        System.out.println("Hand:");
+        //System.out.println("Hand:");
         for(Card c : cards){
             c.getCardName();
         }

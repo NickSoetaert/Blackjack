@@ -11,8 +11,8 @@ public class Test{
 
         */
 
-        Card k = new Card(Suit.HEARTS, Value.KING);
-        Card q = new Card(Suit.CLUBS, Value.KING);
+        Card k = new Card(Suit.HEARTS, Value.TWO);
+        Card q = new Card(Suit.CLUBS, Value.ACE);
         
         Deck d = new Deck(k, q);
 
