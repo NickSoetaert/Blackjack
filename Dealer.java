@@ -25,7 +25,7 @@ public class Dealer extends Player {
             
             hand.addCard(c);
         }
-        System.out.println("\nDealer's final hand is worth: " + hand.getHandValue());
+        System.out.println("\nDealer's final hand is worth " + hand.getHandValue());
     }
 
     public void printHiddenHand(){

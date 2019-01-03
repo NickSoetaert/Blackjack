@@ -66,9 +66,12 @@ public class Player{
 
         System.out.println(" ");
         h.printHand();
-        System.out.println("Your hand is worth " + h.getHandValue());
 
-        //only stay(at 21)
+        if(h.getHandValue() <= 21){
+            System.out.println("Your hand is worth " + h.getHandValue());
+        }
+
+        //only stay(at or above 21)
         if(h.getHandValue() >= 21){
             choice = 1;
         }
@@ -134,10 +137,10 @@ public class Player{
     }
 
 
-
-
     private void doubleDown(Deck d, Hand h){
-
+        h.addCard(d.drawCard());
+        h.printHand();
+        stay(h);
     }
 
 
