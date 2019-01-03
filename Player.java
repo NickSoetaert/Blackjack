@@ -1,6 +1,4 @@
 import java.util.*;
-import java.io.Console;
-
 
 public class Player{
 
@@ -37,8 +35,6 @@ public class Player{
     private void betHelper(Deck d){
         boolean badBet = true;
         int amnt = 0;
-
-        amnt = 5;
 
         while(badBet){
             System.out.println("How many chips would you like to bet?");
@@ -123,7 +119,7 @@ public class Player{
         }
     }
 
-    protected void stay(Hand h){
+    private void stay(Hand h){
         if(h.getHandValue() > 21){
             System.out.println("You bust at " + h.getHandValue());
         } else {
@@ -136,23 +132,32 @@ public class Player{
         playHelper(d, h);
     }
 
-
     private void doubleDown(Deck d, Hand h){
         h.addCard(d.drawCard());
+        h.setBet(h.getBet() * 2);
+        System.out.println("\nYour bet has been doubled to " + h.getBet() + " chips.");
         h.printHand();
         stay(h);
     }
 
-
     private void split(Deck d, Hand h){
+        System.out.println("You split your hand.");
+
+        System.out.println("Contains h: " + hands.contains(h));
+        //hands.remove(h);
+
+        Hand a = new Hand(d, h.getCardAt(0), h.getBet());
+        a.printHand();
+
+        Hand b = new Hand(d, h.getCardAt(1), h.getBet());
+        b.printHand();
+
+        System.out.println("Number of hands: " + hands.size());
 
     }
 
     private void displayChips(){
         System.out.println("You have " + _chips + " chips");
     }
-
-
-
 
 }

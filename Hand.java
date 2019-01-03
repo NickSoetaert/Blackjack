@@ -13,7 +13,7 @@ public class Hand{
     }
 
     //used when splitting a hand
-    public Hand(Card c, Deck d, int bet){
+    public Hand(Deck d, Card c, int bet){
         this.cards.add(c);
         this.cards.add(d.drawCard());
         _bet = bet;
@@ -39,8 +39,8 @@ public class Hand{
         }
     }
 
-    public Card getFirstCard(){
-        return cards.get(0);
+    public Card getCardAt(int i){
+        return cards.get(i);
     }
 
     public boolean canSplit(){

@@ -11,12 +11,12 @@ public class Test{
 
         */
 
-        Card k = new Card(Suit.HEARTS, Value.QUEEN);
+        Card k = new Card(Suit.HEARTS, Value.KING);
         Card q = new Card(Suit.CLUBS, Value.KING);
         
-        //Deck d = new Deck(k, q);
+        Deck d = new Deck(k, q);
 
-        Deck d = new Deck();
+        //Deck d = new Deck();
 
         Player p = new Player();
         Dealer dealer = new Dealer();

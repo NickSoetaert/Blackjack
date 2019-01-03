@@ -1,35 +1,33 @@
-public class Dealer extends Player {
+public class Dealer{
     
-    Hand hand;
+    private Hand _hand;
 
     public Dealer(){
         //No default values
     }
 
     public void initHand(Deck d){
-        hand = new Hand(d, 0);
+        _hand = new Hand(d, 0);
     }
 
     public void playHand(Deck d){
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.printf("Dealer's ");
-        hand.printHand();
+        _hand.printHand();
 
-        while(hand.getHandValue() <= 16){
+        while(_hand.getHandValue() <= 16){
             Card c = d.drawCard();
-            System.out.println(" ");
 
-            System.out.printf("The dealer hits, and draws ");
-
+            System.out.printf("\nThe dealer hits, and draws ");
             c.getCardNameWithPrefix();
             
-            hand.addCard(c);
+            _hand.addCard(c);
         }
-        System.out.println("\nDealer's final hand is worth " + hand.getHandValue());
+        System.out.println("\nDealer's final hand is worth " + _hand.getHandValue());
     }
 
     public void printHiddenHand(){
-        Card c = hand.getFirstCard();
+        Card c = _hand.getCardAt(0);
         System.out.printf("The dealer is showing " );
         c.getCardNameWithPrefix();
     }
