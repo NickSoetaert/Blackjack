@@ -1,33 +1,33 @@
 public class Blackjack{
     public static void main(String[] args){
 
-        /*
-        Current todo:
-        * Implement GameController class
-
-        */
-
-        Card k = new Card(Suit.HEARTS, Value.TWO);
-        Card q = new Card(Suit.CLUBS, Value.ACE);
+        //Card k = new Card(Suit.HEARTS, Value.TWO);
+        //Card q = new Card(Suit.CLUBS, Value.ACE);
         
         //Deck d = new Deck(k, q);
 
-        Deck d = new Deck();
 
         Player p = new Player();
         Dealer dealer = new Dealer();
 
-        p.bet(d);
+        while(p.getChips() > 0){
+        
+            Deck d = new Deck();
 
-        dealer.initHand(d);
-        dealer.printHiddenHand();
+            p.bet(d);
 
-        p.play(d);
-        dealer.playHand(d);
+            dealer.initHand(d);
+            dealer.printHiddenHand();
 
-        GameController g = new GameController();
-        g.calcWinnings(p, dealer);
+            p.play(d);
+            dealer.playHand(d);
 
+            GameController g = new GameController();
+            g.calcWinnings(p, dealer);
+        }
 
-       }
+        System.out.println("Thank you for playing. The house always wins.");
+        p.closeScanner();
+
+    }
 }

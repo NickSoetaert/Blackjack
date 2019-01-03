@@ -13,7 +13,7 @@ public class Deck {
         deck.add(a);
         deck.add(b);
 
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 3; i++) {
             for(Suit s : Suit.values()) {
                 Card c = new Card(s, Value.KING);
                 deck.add(c);

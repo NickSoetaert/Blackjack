@@ -36,4 +36,8 @@ public class Dealer {
         return _hand;
     }
 
+    public void resetHand(){
+        _hand = null;
+    }
+
 }

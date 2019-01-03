@@ -12,6 +12,8 @@ public class GameController {
         }
         p.awardWinnings(winnings);
         System.out.println("You now have " + p.getChips() + " chips.");
+        p.clearHands();
+        d.resetHand();
     }
 
     //Decides winner for each individual hand. Returns an int representing player's winnings.
@@ -31,12 +33,12 @@ public class GameController {
             winnings += playerHand.getBet();
             winnings += winnings * 1.5;
             System.out.printf("Congratulations on your blackjack! You profit 1.5x your bet.");
-            System.out.printf(" (+" + winnings + " chips)");
+            System.out.println(" (+" + winnings + " chips)");
         }
         else if(playerHand.getHandValue() > dealerHand.getHandValue()){
             winnings = playerHand.getBet() * 2;
-            System.out.println("Congratulations on your win! You profit 1x your bet.");
-            System.out.printf(" (+" + winnings + " chips)");
+            System.out.printf("Congratulations on your win! You profit 1x your bet.");
+            System.out.println(" (+" + winnings + " chips)");
         }
         else{ //playerHand.getHandValue() < dealerHand.getHandValue()
             winnings = 0;

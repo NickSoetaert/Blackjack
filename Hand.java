@@ -74,4 +74,8 @@ public class Hand {
     public boolean isBlackjack(){
         return(this.getHandValue() == 21 && cards.size() == 2);
     }
+
+    public void resetHand(){
+        cards = null;
+    }
 }

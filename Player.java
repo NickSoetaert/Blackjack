@@ -31,7 +31,6 @@ public class Player {
         
 
         //POSSIBLE BUGS IN THE FUTURE HERE. What if we want to play multiple rounds?
-        sc.close();
     }
 
 
@@ -191,6 +190,14 @@ public class Player {
 
     public int getChips(){
         return _chips;
+    }
+
+    public void clearHands(){
+        hands.clear();
+    }
+
+    public void closeScanner(){
+        sc.close();
     }
 
 }
