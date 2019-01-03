@@ -7,6 +7,12 @@ public class Deck {
         Collections.shuffle(deck);
     }
 
+    //For debug only
+    public Deck(Card a, Card b){
+        deck.add(a);
+        deck.add(b);
+    }
+
     public Deck(){
         for(Value v : Value.values()) {
             for(Suit s : Suit.values()) {

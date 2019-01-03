@@ -46,6 +46,7 @@ public class Hand{
     public boolean canSplit(){
         boolean isSizeTwo = (cards.size() == 2);
         boolean sameCards = (cards.get(0).getEnumValue() == cards.get(1).getEnumValue());
+
         return (isSizeTwo && sameCards);
     }
 
