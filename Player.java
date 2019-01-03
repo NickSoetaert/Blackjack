@@ -1,14 +1,16 @@
 import java.util.*;
+import java.io.Console;
+
 
 public class Player{
 
-//Also possible: Each hand has an associated bet
-
-
     private ArrayList<Hand> hands = new ArrayList<Hand>();
     private int _chips;
+    private Scanner sc;
 
     public Player(){
+        sc = new Scanner(System.in);
+
         this._chips = 1000;
     }
 
@@ -24,20 +26,23 @@ public class Player{
     //Calls playHelper on all hands
     public void play(Deck d){
         for(Hand h : hands){
-            playHelper(d, h);
+            getPlayerMove(h);
         }
+
     }
 
 
     private void betHelper(Deck d){
         boolean badBet = true;
         int amnt = 0;
-        Scanner sc = new Scanner(System.in);
+
+        amnt = 5;
 
         while(badBet){
             System.out.println("How many chips would you like to bet?");
 
-            amnt = sc.nextInt();
+            String buffer = sc.nextLine();
+            amnt = Integer.parseInt(buffer); 
 
             if(amnt > _chips){
                 System.out.println("You only have " + _chips + " chips");
@@ -51,53 +56,67 @@ public class Player{
                 badBet = false;
             }
         }
-        sc.close();    
     }
 
     //Plays for a single hand
-    private void playHelper(Deck d, Hand h){
-        Scanner sc = new Scanner(System.in);
+    private int getPlayerMove(Hand h){     
+
+        int choice = 1;
 
         h.printHand();
 
         //only stay(at 21)
         if(h.getHandValue() >= 21){
-            stay();
+            choice = 1;
         }
         //stay, hit, DD and split
         else if(h.getBet() <= _chips/2 && h.canSplit()){
             System.out.printf("Would you like to: ");
             System.out.println("[1] Stay, or [2] Hit, [3] Double Down, or [4] Split?");
+            String nextIntString = sc.nextLine(); //get the number as a single line
+            int nextInt = Integer.parseInt(nextIntString);
         }
         //stay, hit, and DD
         else if(h.getBet() <= _chips/2){
             System.out.printf("Would you like to: ");
             System.out.println("[1] Stay, [2] Hit, or [3] Double Down");
+            String nextIntString = sc.nextLine(); //get the number as a single line
+            int nextInt = Integer.parseInt(nextIntString);
         }
         //only stay and hit 
         else{
             System.out.printf("Would you like to: ");
             System.out.println("[1] Stay, or [2] Hit");
+            choice = sc.nextInt();
         }
 
+
+
         sc.close();
+
+        return choice;
+
+    }
+
+    private void executePlayerMove(int choice){
+
     }
 
     private void hit(Deck d, Hand h){
         h.addCard(d.drawCard());
     }
 
-    protected void stay(){
+    protected void stay(Hand h){
 
     }
 
 
-    private void doubleDown(Deck d){
+    private void doubleDown(Deck d, Hand h){
 
     }
 
 
-    private void split(Deck d){
+    private void split(Deck d, Hand h){
 
     }
 

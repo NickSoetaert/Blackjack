@@ -9,6 +9,13 @@ public class Deck {
 
     //For debug only
     public Deck(Card a, Card b){
+        for(Value v : Value.values()) {
+            for(Suit s : Suit.values()) {
+                Card c = new Card(s, v);
+                deck.add(c);
+            }
+        }
+
         deck.add(a);
         deck.add(b);
     }

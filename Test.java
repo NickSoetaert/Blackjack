@@ -1,5 +1,15 @@
+import java.util.*;
+
 public class Test{
     public static void main(String[] args){
+
+        /*
+        Current todo:
+        
+        * Player's play() and playHelper() functions
+        * Implement GameController class
+
+        */
 
         Card k = new Card(Suit.HEARTS, Value.KING);
         Card q = new Card(Suit.CLUBS, Value.QUEEN);
@@ -7,20 +17,15 @@ public class Test{
         Deck d = new Deck(k, q);
 
         Player p = new Player();
-        //Dealer dealer = new Dealer();
+        Dealer dealer = new Dealer();
 
         p.bet(d);
 
-        //dealer.initHand(d);
-        //dealer.printHiddenHand();
+        dealer.initHand(d);
+        dealer.printHiddenHand();
 
         p.play(d);
-        //dealer.playHand(d);
+        dealer.playHand(d);
 
-        /*
-        Card k = new Card(Suit.HEARTS, Value.JACK);
-        Card q = new Card(Suit.CLUBS, Value.QUEEN);
-        System.out.println(k.getEnumValue() == q.getEnumValue());
-        */
        }
 }
