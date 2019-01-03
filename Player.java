@@ -25,7 +25,6 @@ public class Player {
     }
 
     public void play(Deck d){
-
         System.out.println("\nIt is your turn to play.\n");
 
         playHelper(d, hands.get(0));
