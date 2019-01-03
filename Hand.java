@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Hand{
     protected ArrayList<Card> cards = new ArrayList<Card>();
+    private int _bet;
 
     public Hand(Deck d){
         //Make sure every hand has 2 cards
@@ -20,13 +21,20 @@ public class Hand{
         cards.add(c);
     }
 
+    public void setBet(int b){
+        _bet = b;
+    }
+
+    public int getBet(){
+        return _bet;
+    }
+
 
     public void printHand(){
         System.out.println("Hand:");
         for(Card c : cards){
             c.getCardName();
         }
-        System.out.println("");
     }
 
 

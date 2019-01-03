@@ -23,7 +23,7 @@ public class Player{
         
     }
 
-    public void displayChips(){
+    private void displayChips(){
         System.out.println("You have " + _chips + " chips");
     }
 
@@ -44,12 +44,13 @@ public class Player{
                 System.out.println("Must bet at least 1 chip");
             }
             else{
+                hands.set(0, setBet(amnt));
                 badBet = false;
             }
         }
 
         sc.close();
-        return amnt;
+        //return amnt;
     
     }
 

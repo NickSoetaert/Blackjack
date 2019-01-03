@@ -25,4 +25,8 @@ public class Card {
         else v = 10;
         return v;
     }
+
+    public Value getEnumValue(){
+        return value;
+    }
 }

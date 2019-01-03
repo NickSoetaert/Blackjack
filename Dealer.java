@@ -10,17 +10,21 @@ public class Dealer extends Player {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.printf("Dealer's ");
         h.printHand();
-        System.out.println("Dealer's hand is worth: " + h.getHandValue());
+
         while(h.getHandValue() <= 16){
-            System.out.println(" ");
-            System.out.println("Hitting");
-            
             Card c = d.drawCard();
-            System.out.printf("Deader drew a ");
+            System.out.println(" ");
+
+            if((c.getEnumValue() == Value.EIGHT) || (c.getEnumValue() == Value.ACE)){
+                System.out.printf("The dealer hits, and draws an ");
+            } else {
+                System.out.printf("The dealer hits, and draws a ");
+            }
+            
             c.getCardName();
             
             h.addCard(c);
-            System.out.println("Dealer's hand is now worth: " + h.getHandValue());
         }
+        System.out.println("\nDealer's final hand is worth: " + h.getHandValue());
     }
 }
