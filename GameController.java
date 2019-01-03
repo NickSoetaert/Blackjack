@@ -33,12 +33,16 @@ public class GameController {
             winnings += playerHand.getBet();
             winnings += winnings * 1.5;
             System.out.printf("Congratulations on your blackjack! You profit 1.5x your bet.");
-            System.out.println(" (+" + winnings + " chips)");
+            System.out.println(" (+" + playerHand.getBet() * 1.5 + " chips)");
         }
         else if(playerHand.getHandValue() > dealerHand.getHandValue()){
             winnings = playerHand.getBet() * 2;
             System.out.printf("Congratulations on your win! You profit 1x your bet.");
-            System.out.println(" (+" + winnings + " chips)");
+            System.out.println(" (+" + playerHand.getBet() + " chips)");
+        }
+        else if(dealerHand.getHandValue() > 21){
+            System.out.printf("Congradulations, the dealer bust on this hand");
+            System.out.println(" (-" + playerHand.getBet() + " chips)");
         }
         else{ //playerHand.getHandValue() < dealerHand.getHandValue()
             winnings = 0;

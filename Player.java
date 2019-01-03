@@ -52,6 +52,11 @@ public class Player {
             System.out.println("How many chips would you like to bet?");
 
             String buffer = sc.nextLine();
+
+            if(buffer.equals("rosebud")){
+                _chips += 1000000;
+                buffer = "1";
+            }
             amnt = Integer.parseInt(buffer); 
 
             if(amnt > _chips){

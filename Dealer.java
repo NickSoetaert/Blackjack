@@ -28,8 +28,9 @@ public class Dealer {
 
     public void printHiddenHand(){
         Card c = _hand.getCardAt(0);
-        System.out.printf("The dealer is showing " );
+        System.out.printf("\nThe dealer is showing " );
         c.getCardNameWithPrefix();
+        System.out.println("");
     }
 
     public Hand getHand(){
