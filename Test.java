@@ -5,15 +5,13 @@ public class Test{
         Player p = new Player();
         Dealer dealer = new Dealer();
 
+        p.bet(d);
+
         dealer.initHand(d);
         dealer.printHiddenHand();
 
-        p.playHand(d);
-
-
-
+        p.play(d);
         dealer.playHand(d);
-
        
        }
 

@@ -43,6 +43,12 @@ public class Hand{
         return cards.get(0);
     }
 
+    public boolean canSplit(){
+        boolean isSizeTwo = (cards.size() == 2);
+        boolean sameCards = (cards.get(0).getEnumValue() == cards.get(1).getEnumValue());
+        return (isSizeTwo && sameCards);
+    }
+
 
     protected int getHandValue(){
         //only one ace in a hand can count as 11

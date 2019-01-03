@@ -5,28 +5,31 @@ public class Player{
 //Also possible: Each hand has an associated bet
 
 
-    protected ArrayList<Hand> hands = new ArrayList<Hand>();
+    private ArrayList<Hand> hands = new ArrayList<Hand>();
     private int _chips;
 
     public Player(){
         this._chips = 1000;
     }
 
-    public void playHand(Deck d){
+    public void bet(Deck d){
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         displayChips();
-        bet(d);
+        betHelper(d);
 
         System.out.println("Your bet: " + hands.get(0).getBet());
 
-        
     }
 
-    private void displayChips(){
-        System.out.println("You have " + _chips + " chips");
+    //Calls playHelper on all hands
+    public void play(Deck d){
+        for(Hand h : hands){
+            playHelper(d, h);
+        }
     }
 
-    private void bet(Deck d){
+
+    private void betHelper(Deck d){
         boolean badBet = true;
         int amnt = 0;
         Scanner sc = new Scanner(System.in);
@@ -48,8 +51,36 @@ public class Player{
                 badBet = false;
             }
         }
-
         sc.close();    
+    }
+
+    //Plays for a single hand
+    private void playHelper(Deck d, Hand h){
+        Scanner sc = new Scanner(System.in);
+
+        h.printHand();
+
+        //only stay(at 21)
+        if(h.getHandValue() >= 21){
+            stay();
+        }
+        //stay, hit, DD and split
+        else if((_chips >= h.getBet()) && h.canSplit()){
+            System.out.printf("Would you like to: ");
+            System.out.println("[1] Stay, or [2] Hit, [3] Double Down, or [4] Split?");
+        }
+        //stay, hit, and DD
+        else if(_chips >= h.getBet()){
+            System.out.printf("Would you like to: ");
+            System.out.println("[1] Stay, [2] Hit, or [3] Double Down");
+        }
+        //only stay and hit 
+        else{
+            System.out.printf("Would you like to: ");
+            System.out.println("[1] Stay, or [2] Hit");
+        }
+
+        sc.close();
     }
 
     private void hit(Deck d, Hand h){
@@ -70,7 +101,9 @@ public class Player{
 
     }
 
-
+    private void displayChips(){
+        System.out.println("You have " + _chips + " chips");
+    }
 
 
 
