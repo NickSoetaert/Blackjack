@@ -5,8 +5,6 @@ public class Test{
 
         /*
         Current todo:
-        
-        * Player's play() and playHelper() functions
         * Implement GameController class
 
         */

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Hand{
+public class Hand {
     protected ArrayList<Card> cards = new ArrayList<Card>();
     private int _bet;
 

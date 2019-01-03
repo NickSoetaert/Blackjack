@@ -1,7 +1,7 @@
 import java.util.concurrent.CopyOnWriteArrayList; 
 import java.util.*; 
 
-public class Player{
+public class Player {
 
     private CopyOnWriteArrayList<Hand> hands = new CopyOnWriteArrayList<Hand>();
     private int _chips;

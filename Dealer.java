@@ -1,4 +1,4 @@
-public class Dealer{
+public class Dealer {
     
     private Hand _hand;
 
